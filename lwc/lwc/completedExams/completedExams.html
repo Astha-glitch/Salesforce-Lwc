@@ -1,0 +1,16 @@
+<template>
+    <h1>List of Exams Completed</h1>
+        <template if:true={showResults}>
+            <div class="completedExams">
+        <lightning-datatable
+             key-field="id"
+             data={examList}
+             columns={columns}
+             onrowaction={handleRowAction}
+             hide-checkbox-column="true"
+             >
+     </lightning-datatable>
+    </div>
+    </template>
+
+</template>

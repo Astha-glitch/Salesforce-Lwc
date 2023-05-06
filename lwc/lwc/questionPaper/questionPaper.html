@@ -1,0 +1,33 @@
+<template>
+    <!-- component HTML goes here -->
+    <template if:true={showQuestion}>
+    <h1>Only 1 out of 4 options is correct. You need to type the correct option in the input box.</h1>
+    <form>
+    <table class="slds-table slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table_bordered">
+        <thead>
+            <th>Question</th>
+            <th>Option 1</th>
+            <th>Option 2</th>
+            <th>Option 3</th>
+            <th>Option 4</th>
+        </thead>
+        <tbody>
+    <template for:each={questions} for:item="ques">
+        <tr key={ques.Id}>
+            <td><h1>{ques.AB_QuestionDes__c}</h1></td>
+            <td><input type='radio' name={ques.Id} value={ques.AB_Option1__c} onchange={handleAnswerChange} class="option"/>{ques.AB_Option1__c}</td>
+            <td><input type='radio' name={ques.Id} value={ques.AB_Option2__c} onchange={handleAnswerChange} class="option"/> {ques.AB_Option2__c}</td>
+            <td><input type='radio' name={ques.Id} value={ques.AB_Option3__c} onchange={handleAnswerChange} class="option"/>{ques.AB_Option3__c}</td>
+            <td><input type='radio' name={ques.Id} value={ques.AB_Option4__c} onchange={handleAnswerChange} class="option"/>{ques.AB_Option4__c}</td>
+        </tr>
+    </template>
+</tbody>
+</table>
+<button type="submit" onclick={handleSubmit}>Submit</button>
+</form>
+</template>
+<template if:false={showQuestion}> 
+    <h2>Paper Already Submitted</h2> 
+</template>
+</template>
+

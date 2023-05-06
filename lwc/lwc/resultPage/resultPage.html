@@ -1,0 +1,18 @@
+<template>
+    <lightning-card variant="Narrow" title="Result" icon-name="standard:account">
+        <h1>Score :- {score}</h1>
+    </lightning-card>
+        <div class="completedExams">
+    <lightning-datatable
+         key-field="id"
+         data={solutions}
+         show-row-number-column
+         row-number-offset={rowOffset}
+         columns={columnsList}
+         onrowaction={handleRowAction}
+         hide-checkbox-column="true"
+         >
+ </lightning-datatable>
+</div>
+</template>
+

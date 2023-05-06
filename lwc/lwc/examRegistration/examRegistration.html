@@ -1,0 +1,16 @@
+<template>
+    <br/>
+    <h1>Register For Exam</h1>
+    <div>
+        <h3>Enter the email address</h3>
+        <lightning-input type="email" value={curr_user_email} disabled></lightning-input>
+        <br/>
+        <h3>Select the exam type</h3>
+        <lightning-combobox label="" value={examType} options={examTypes} onchange={handleExamTypeChange}></lightning-combobox>
+        <br/>
+        <h3>Select Exam Date</h3>
+        <lightning-input type="date" label="" value={examDate} onchange={handleExamDateChange} min={startDate} max={endDate}></lightning-input>
+        <br/>
+        <lightning-button variant="brand" label="Schedule Exam" onclick={handleScheduleExam}></lightning-button>
+    </div>
+</template>

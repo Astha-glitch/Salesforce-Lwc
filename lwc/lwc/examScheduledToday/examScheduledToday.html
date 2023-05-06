@@ -1,0 +1,37 @@
+<template>
+    <h1>Exam Scheduled Today</h1>
+        <!-- <table class="slds-table slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-table_bordered">
+            <thead>
+                <tr>
+                    <th>Exam Name</th>
+                    <th>Exam Type</th>
+                    <th>Exam Status</th>
+                    <th>Student Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <template for:each={examList} for:item="exam">
+                <tr key={exam.Id}>
+                    <td>{exam.Name}</td>
+                    <td>{exam.AB_Exam_Type__r.Name}</td>
+                    <td>{exam.AB_Exam_Status__c}</td>
+                    <td>{exam.AB_Student_Email__c}</td>
+                    <td><button onclick={handleStartExam} data-examid={exam.Id}>Start</button></td>
+                </tr>
+            </template>
+        </table> -->
+        <template if:true={showResults}>
+        <lightning-datatable
+             key-field="id"
+             data={examList}
+             columns={columns}
+             onrowaction={handleRowAction}
+             hide-checkbox-column="true"
+             >
+     </lightning-datatable>
+    </template>
+    <template if:false={showResults}>
+        <h1><b>No Exams Scheduled For Today!</b></h1>
+    </template>
+
+</template>
